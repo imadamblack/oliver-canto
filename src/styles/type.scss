@@ -1,0 +1,78 @@
+// ─── Typography ───────────────────────────────────────────────────────────────
+// Replace the @import URL with your Typekit / Google Fonts URL if needed.
+// @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap");
+
+$titleLead: 1.1;
+$subtitleLead: 1.2;
+$baseLead: 1.5;
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+  font-family: "Arial", sans-serif;
+}
+
+// ─── Fluid type scale ─────────────────────────────────────────────────────────
+$fluid_steps: (
+  ft-11: (minSize: 3.26rem, maxSize: 6.2rem,  lead: $titleLead),
+  ft-10: (minSize: 3.06rem, maxSize: 5.5rem,  lead: $titleLead),
+  ft-9:  (minSize: 2.86rem, maxSize: 4.9rem,  lead: $titleLead),
+  ft-8:  (minSize: 2.68rem, maxSize: 4.36rem, lead: $titleLead),
+  ft-7:  (minSize: 2.5rem,  maxSize: 3.88rem, lead: $titleLead),
+  ft-6:  (minSize: 2.36rem, maxSize: 3.45rem, lead: $titleLead),
+  ft-5:  (minSize: 2.2rem,  maxSize: 3.05rem, lead: $titleLead),
+  ft-4:  (minSize: 2.1rem,  maxSize: 2.7rem,  lead: $subtitleLead),
+  ft-3:  (minSize: 1.95rem, maxSize: 2.4rem,  lead: $baseLead),
+  ft-2:  (minSize: 1.8rem,  maxSize: 2.15rem, lead: $baseLead),
+  ft-1:  (minSize: 1.7rem,  maxSize: 1.9rem,  lead: $baseLead),
+  ft-0:  (minSize: 1.6rem,  maxSize: 1.7rem,  lead: $baseLead),
+  -ft-1: (minSize: 1.4rem,  maxSize: 1.6rem,  lead: $baseLead),
+  -ft-2: (minSize: 1.25rem, maxSize: 1.5rem,  lead: $baseLead),
+  -ft-3: (minSize: 1.1rem,  maxSize: 1.3rem,  lead: $baseLead),
+  -ft-4: (minSize: 1.1rem,  maxSize: 1.1rem,  lead: $baseLead),
+);
+
+@each $class, $props in $fluid_steps {
+  .#{$class} {
+    font-size: map-get($props, maxSize);
+    line-height: map-get($props, lead);
+  }
+}
+
+h1 { @extend .ft-10; }
+h2 { @extend .ft-7; }
+h3 { @extend .ft-4; }
+h4 { @extend .ft-3; }
+h5 { @extend .ft-2; }
+h6 { @extend .ft-1; }
+p  { @extend .ft-0; }
+li { @extend .ft-0; }
+
+label {
+  @extend .ft-0;
+  font-family: "Arial", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Arial", sans-serif;
+  letter-spacing: normal;
+  margin-block-start: 0;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+h4, h5, h6 {
+  font-weight: 700;
+}
+
+p, li {
+  font-family: "Arial", sans-serif;
+  margin-block-start: 0;
+}
+
+a {
+  font-size: inherit;
+  color: inherit;
+  text-decoration: none;
+}

@@ -1,0 +1,79 @@
+// ─── Form Styles ──────────────────────────────────────────────────────────────
+
+form {
+  font-size: 16px;
+}
+
+input, select, textarea {
+  font-size: 1.6rem;
+  @apply flex border border-gray-300 rounded-lg px-6 py-4 w-full bg-white;
+
+  &::placeholder {
+    @apply text-gray-400;
+  }
+
+  &:focus {
+    @apply outline-none border-brand-1 ring-2 ring-brand-1/20;
+  }
+}
+
+label {
+  @apply flex mt-6 mb-2 font-medium;
+}
+
+// ─── Radio buttons ────────────────────────────────────────────────────────────
+input[type=radio] {
+  display: none;
+}
+
+input[type=radio] + label {
+  @extend .ft-0;
+  @apply flex w-full py-6 px-8 mt-0 border border-gray-200 rounded-2xl
+    text-left font-semibold
+    justify-start items-center
+    cursor-pointer
+    bg-white
+    transition-all duration-150
+    hover:border-brand-1 hover:bg-brand-6;
+}
+
+input[type=radio]:checked + label {
+  @apply bg-brand-1 text-white border-2 border-brand-1;
+}
+
+// ─── Select ───────────────────────────────────────────────────────────────────
+select {
+  appearance: none;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  & option:disabled {
+    @apply text-gray-400;
+  }
+
+  &:invalid {
+    @apply text-gray-400;
+  }
+}
+
+.select {
+  position: relative;
+
+  &::after {
+    font-size: 1.6rem;
+    display: block;
+    position: absolute;
+    right: 1.2rem;
+    top: 28%;
+    content: "▾";
+    pointer-events: none;
+    color: #555;
+  }
+}
+
+// ─── Survey card ──────────────────────────────────────────────────────────────
+.survey-card {
+  @apply bg-white flex flex-col flex-grow w-full max-w-[56rem] p-8 rounded-b-2xl overflow-y-auto;
+}

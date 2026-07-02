@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './type.scss';
+@import './form.scss';
+
+// ─── Reset / Base ─────────────────────────────────────────────────────────────
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100dvh;
+}
+
+main {
+  @apply flex flex-col relative text-neutral-700;
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+// ─── Buttons ──────────────────────────────────────────────────────────────────
+button, .button {
+  @apply flex justify-center items-center gap-2 cursor-pointer
+    w-max px-8 py-4 font-semibold tracking-wide
+    bg-brand-1 text-white rounded-xl
+    transition-all duration-200
+    hover:brightness-110 hover:-translate-y-0.5
+    disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+
+  &-secondary {
+    @apply bg-transparent border-2 border-brand-1 text-brand-1
+      hover:bg-brand-1 hover:text-white;
+  }
+
+  &.btn-success {
+    @apply bg-brand-5 text-white hover:brightness-110;
+  }
+}
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+.overhead {
+  @extend .-ft-3;
+  @apply relative uppercase tracking-widest px-4 py-2
+    text-brand-1 bg-brand-1/10 w-max rounded-full mb-4 font-bold;
+}
+
+a.link {
+  @apply text-brand-1 underline underline-offset-4 hover:text-brand-2;
+}
+
+.section {
+  @apply py-24 px-6;
+}
+
+.section-dark {
+  @apply py-24 px-6 bg-brand-1 text-white;
+}
+
+.section-light {
+  @apply py-24 px-6 bg-brand-6;
+}
