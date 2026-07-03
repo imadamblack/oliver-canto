@@ -367,7 +367,7 @@ const formSteps = () => ([
       { value: 'cdmx',  label: 'CDMX' },
       { value: 'puebla',        label: 'Puebla' },
       { value: 'guadalajara', label: 'Guadalajara' },
-      { value: 'monterrey',       label: 'Monterrey' },
+      { value: 'merida',       label: 'Mérida' },
       { value: 'otro',      label: 'Otra ciudad' },
     ],
     cols: 1,
